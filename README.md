@@ -6,7 +6,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [P
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/pradeep8577/PDFAudible.git
+$ git clone https://github.com/pradeep8577/pdf-audio.git
 
 # Go into the repository
 $ cd PDFAudible
@@ -24,7 +24,7 @@ $ env/scripts/activate
 $ pip install -r requirements.txt
 
 # Run the application
-$ flask run 
+$ python app.py 
 
 # Visit the following URL in your web browser
 http://127.0.0.1:5000
