@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDFAudible - Convert your PDF to audio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="../static/logo.PNG" type="image/x-icon" />
+</head>
+
+<body class="bg-gray-100">
+  <div class="container mx-auto">
+    <h1 class="text-center font-bold my-4 text-4xl">PDFAudible!</h1>
+  </div>
+  <div class="container mx-auto">
+    <div class="flex justify-center">
+      <form action="/process" method="POST" enctype="multipart/form-data" class="w-96">
+        <div class="mt-4">
+          <label for="pdf_file" class="block">Upload your File</label>
+          <input type="file" class="border p-2 w-full" name="input_file" />
+          <p class="text-sm">(File type : Document or PDF )</p>
+        </div>
+        <div class="mt-4">
+          <label for="voice" class="block">Choose Gender of Voice</label>
+          <select id="voice" name="voice" class="border p-2 w-full">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="mt-4">
+          <label for="speed" class="block">Choose Speed of Voice</label>
+          <select id="speed" name="speed" class="border p-2 w-full">
+            <option value="1x">1.0x</option>
+            <option value="0.5x">0.5x</option>
+            <option value="2x">2.0x</option>
+          </select>
+        </div>
+        <input type="submit" value="Convert" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer">
+      </form>
+    </div>
+    <div class="flex justify-center mt-8">
+      <audio controls class="w-96">
+        <source src="{{ url_for('download_audio', audio_filename=audio_filename) }}" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer ml-4">
+        <a href="{{ url_for('download_audio', audio_filename=audio_filename) }}" download>
+          Download
+        </a>
+      </button>
+      <!-- <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer ml-4">
+        <a href="/">
+          New
+        </a>
+      </button> -->
+    </div>
+  </div>
+
+  <script type="py" src="/backend.py" config="./pyscript.json"></script>
+  
+</body>
+
+</html>

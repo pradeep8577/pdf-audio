@@ -1,0 +1,7 @@
+Flask
+PyPDF2
+pyttsx3
+uuid
+python-docx
+beautifulsoup4
+requests
